@@ -4,6 +4,8 @@ Thanks to Doga for providing his version so I could GPT it to RuneLite.
 
 A RuneLite plugin that displays widget/component information when hovering over UI elements in Old School RuneScape. Useful for developers and plugin creators who need to identify widget IDs, child indices, and other component properties.
 
+![Screenshot](screenshot.png)
+
 ## Features
 
 - Shows widget group ID and child ID in `group:child` format
