@@ -9,6 +9,7 @@ A RuneLite plugin that displays widget/component information when hovering over 
 ## Features
 
 - Shows widget group ID and child ID in `group:child` format
+- Displays gameval constant names (e.g., `CharacterCreator.DESIGN_HEAD_LEFT`)
 - Displays dynamic child index when applicable (e.g., `162:56[3]`)
 - Shows text content, name, and actions of widgets
 - Displays sprite ID and item ID when present
@@ -40,10 +41,11 @@ Copy the built JAR to your RuneLite external plugins folder, or load it via the 
 
 The overlay shows information in this format:
 ```
-group:child[index] [T: text] [N: name] [A: action] [S: spriteId] [I: itemId] [Type: type]
+group:child[index] (GamevalName.COMPONENT) [T: text] [N: name] [A: action] [S: spriteId] [I: itemId] [Type: type]
 ```
 
 - **group:child** - The widget ID split into interface group and child component
+- **(GamevalName.COMPONENT)** - The gameval constant name from RuneLite's InterfaceID
 - **[index]** - The dynamic child index (only shown for dynamic children)
 - **[T: ...]** - Text content of the widget
 - **[N: ...]** - Name property of the widget
@@ -52,10 +54,21 @@ group:child[index] [T: text] [N: name] [A: action] [S: spriteId] [I: itemId] [Ty
 - **[I: ...]** - Item ID if the widget displays an item
 - **[Type: ...]** - Widget type number
 
+## Updating Widget Names
+
+To fetch the latest InterfaceID constants from RuneLite:
+
+```bash
+python3 update_widget_names.py
+```
+
+This updates `src/main/resources/interfaces.txt` and `src/main/resources/components.txt` with the latest gameval constants.
+
 ## Requirements
 
 - Java 11+
 - RuneLite client
+- Python 3 (for updating widget names)
 
 ## License
 
